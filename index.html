@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeekPeek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/peekpeek-icon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="assets/peekpeek-icon.png" alt="PeekPeek" class="product-icon">
+      <h1>PeekPeek</h1>
+      <button class="add-button" id="addButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        添加账号
+      </button>
+    </div>
+
+    <div class="modal" id="addAccountModal">
+      <div class="modal-content">
+        <h2>添加账号</h2>
+        <form id="addAccountForm">
+          <input type="url" id="accountUrl" placeholder="请输入社交媒体账号链接" required>
+          <div class="modal-actions">
+            <button type="button" class="cancel-button" id="cancelAdd">取消</button>
+            <button type="submit" class="confirm-button">确认添加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="accounts-list" id="accountsList">
+      <!-- 账号列表将通过 JavaScript 动态生成 -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
