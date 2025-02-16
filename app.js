@@ -1,6 +1,23 @@
 // 从 localStorage 获取保存的账号列表
 let accounts = JSON.parse(localStorage.getItem('accounts') || '[]');
 
+// 语言切换相关函数
+function toggleLanguageMenu() {
+  const menu = document.getElementById('languageMenu');
+  menu.classList.toggle('show');
+}
+
+function selectLanguage(lang) {
+  document.getElementById('currentLanguage').textContent = {
+    'zh-CN': '简体中文',
+    'en-US': 'English',
+    'ja-JP': '日本語',
+    'ko-KR': '한국어'
+  }[lang];
+  i18n.setLanguage(lang);
+  toggleLanguageMenu();
+}
+
 // DOM 元素
 const addButton = document.getElementById('addButton');
 const addAccountModal = document.getElementById('addAccountModal');
@@ -109,7 +126,7 @@ addAccountForm.addEventListener('submit', async (e) => {
   
   const parsedInfo = await parseUrl(url);
   if (!parsedInfo) {
-    alert('无法解析该链接，请确保输入了正确的社交媒体账号链接');
+    alert(i18n.t('parseError'));
     return;
   }
   
@@ -162,7 +179,7 @@ function renderAccounts() {
         <div class="more-actions">
           <button 
             class="more-button" 
-            title="更多操作"
+            title="${i18n.t('moreActions')}"
             onclick="toggleDropdown('${account.id}')"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -175,14 +192,14 @@ function renderAccounts() {
             <button 
               class="delete-button"
               onclick="handleDeleteAccount('${account.id}')"
-              title="删除账号"
+              title="${i18n.t('delete')}"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 6h18"/>
                 <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
                 <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
               </svg>
-              删除
+              ${i18n.t('delete')}
             </button>
           </div>
         </div>
