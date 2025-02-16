@@ -10,12 +10,25 @@
   <link rel="icon" href="assets/peekpeek-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/peekpeek-icon.png">
   <link rel="stylesheet" href="style.css">
+  <script src="i18n.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <img src="assets/peekpeek-icon.png" alt="PeekPeek" class="product-icon">
       <h1>PeekPeek</h1>
+      <div class="language-selector">
+        <button class="language-button" onclick="toggleLanguageMenu()">
+          <span id="currentLanguage">简体中文</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <button onclick="selectLanguage('zh-CN')">简体中文</button>
+          <button onclick="selectLanguage('en-US')">English</button>
+        </div>
+      </div>
       <button class="add-button" id="addButton">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="12" y1="5" x2="12" y2="19"></line>
