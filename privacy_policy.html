@@ -157,13 +157,23 @@
             
             // 获取浏览器的首选语言
             function getBrowserLanguage() {
-                const navigatorLang = navigator.language || navigator.userLanguage;
-                console.log("浏览器语言: ", navigatorLang);
+                const navigatorLang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+                console.log("浏览器检测到的语言: ", navigatorLang);
                 
-                // 简化语言代码匹配逻辑
-                if (navigatorLang.startsWith('zh')) return 'zh-CN';
-                if (navigatorLang.startsWith('ja')) return 'ja';
-                if (navigatorLang.startsWith('ko')) return 'ko';
+                // 更精确的语言代码匹配
+                if (navigatorLang.includes("zh") || navigatorLang.startsWith("zh")) {
+                    console.log("检测到中文");
+                    return 'zh-CN';
+                }
+                if (navigatorLang.includes("ja") || navigatorLang.startsWith("ja")) {
+                    console.log("检测到日语");
+                    return 'ja';
+                }
+                if (navigatorLang.includes("ko") || navigatorLang.startsWith("ko")) {
+                    console.log("检测到韩语");
+                    return 'ko';
+                }
+                console.log("未检测到特定语言，使用英语");
                 return 'en'; // 默认英语
             }
 
@@ -241,7 +251,14 @@
 
             // 显示选定语言的内容
             function displayLanguage(lang) {
-                console.log("显示语言: ", lang);
+                console.log("准备显示语言: ", lang);
+                
+                // 验证语言代码格式
+                const validLangs = ['zh-CN', 'en', 'ja', 'ko'];
+                if (!validLangs.includes(lang)) {
+                    console.warn("不支持的语言代码: ", lang, "，使用默认英语");
+                    lang = 'en';
+                }
                 
                 // 首先隐藏所有语言内容
                 const allContents = document.querySelectorAll('.lang-content');
@@ -256,9 +273,9 @@
                 const targetElement = document.getElementById(lang);
                 if (targetElement) {
                     targetElement.style.display = 'block';
-                    console.log("显示元素: ", lang);
+                    console.log("成功显示元素: ", lang);
                 } else {
-                    console.error("找不到语言元素: ", lang);
+                    console.error("找不到语言元素ID: ", lang);
                     // 如果找不到选择的语言，默认显示英语
                     const defaultElement = document.getElementById('en');
                     if (defaultElement) {
@@ -273,28 +290,47 @@
                 const selectElement = document.getElementById('languageSelect');
                 if (selectElement) {
                     selectElement.value = lang;
-                    console.log("更新选择器值: ", lang);
+                    console.log("更新选择器值为: ", lang);
                 }
                 
                 // 更新HTML的lang属性
                 document.documentElement.lang = lang;
-                console.log("更新HTML lang属性: ", lang);
+                console.log("更新HTML lang属性为: ", lang);
             }
 
-            // 初始化语言 - 使用更健壮的方法
-            const storedLang = getLanguagePreference();
-            const initialLang = storedLang || getBrowserLanguage();
-            console.log("初始语言: ", initialLang);
-            
-            // 确保初始显示
-            displayLanguage(initialLang);
+            // 初始化语言处理
+            function initializeLanguage() {
+                try {
+                    // 获取存储的语言偏好
+                    const storedLang = getLanguagePreference();
+                    console.log("存储的语言偏好: ", storedLang);
+                    
+                    // 检测浏览器语言
+                    const browserLang = getBrowserLanguage();
+                    console.log("浏览器检测语言: ", browserLang);
+                    
+                    // 使用存储的语言或浏览器语言
+                    const initialLang = storedLang || browserLang;
+                    console.log("最终选择的初始语言: ", initialLang);
+                    
+                    // 显示选定的语言
+                    displayLanguage(initialLang);
+                } catch (error) {
+                    console.error("初始化语言时出错: ", error);
+                    // 出错时显示英语作为后备
+                    displayLanguage('en');
+                }
+            }
+
+            // 初始化语言
+            initializeLanguage();
 
             // 添加语言选择器的事件监听器
             const selectElement = document.getElementById('languageSelect');
             if (selectElement) {
                 selectElement.addEventListener('change', function() {
                     const selectedLang = this.value;
-                    console.log("语言已更改: ", selectedLang);
+                    console.log("用户手动选择了语言: ", selectedLang);
                     saveLanguagePreference(selectedLang);
                     displayLanguage(selectedLang);
                 });
