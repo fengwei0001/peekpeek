@@ -34,28 +34,275 @@
         .container {
             padding: 10px;
         }
+        .language-selector {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        .language-selector select {
+            padding: 5px;
+            background-color: #2d3748;
+            color: #ffffff;
+            border: 1px solid #4a5568;
+            border-radius: 4px;
+        }
+        .lang-content {
+            display: none; /* 默认隐藏所有语言内容 */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>隐私政策</h1>
-        
-        <p>PeekPeek 非常重视您的隐私。本隐私政策旨在向您说明我们如何收集、使用和保护您的个人信息。</p>
-        
-        <h2>信息收集</h2>
-        <p>我们仅收集您主动提供的社交媒体链接信息，包括但不限于用户名、头像和昵称。所有数据均存储在您的设备本地，不会上传至任何服务器。</p>
-        
-        <h2>信息使用</h2>
-        <p>收集的信息仅用于在应用内显示您添加的社交媒体账号信息，方便您快速访问这些账号。</p>
-        
-        <h2>信息安全</h2>
-        <p>所有数据均存储在您的设备本地，我们不会将您的任何信息上传至云端或与第三方共享。</p>
-        
-        <h2>隐私政策更新</h2>
-        <p>我们可能会不时更新本隐私政策。当我们进行更改时，我们会在应用内通知您。</p>
-        
-        <h2>联系我们</h2>
-        <p>如果您对我们的隐私政策有任何疑问，请通过应用内的用户反馈功能联系我们。</p>
+        <div class="language-selector">
+            <select id="languageSelect">
+                <option value="zh-CN">中文</option>
+                <option value="en">English</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+            </select>
+        </div>
+
+        <!-- 中文版本 -->
+        <div id="zh-CN" class="lang-content">
+            <h1>隐私政策</h1>
+            
+            <p>PeekPeek 非常重视您的隐私。本隐私政策旨在向您说明我们如何收集、使用和保护您的个人信息。</p>
+            
+            <h2>信息收集</h2>
+            <p>我们仅收集您主动提供的社交媒体链接信息，包括但不限于用户名、头像和昵称。所有数据均存储在您的设备本地，不会上传至任何服务器。</p>
+            
+            <h2>信息使用</h2>
+            <p>收集的信息仅用于在应用内显示您添加的社交媒体账号信息，方便您快速访问这些账号。</p>
+            
+            <h2>信息安全</h2>
+            <p>所有数据均存储在您的设备本地，我们不会将您的任何信息上传至云端或与第三方共享。</p>
+            
+            <h2>隐私政策更新</h2>
+            <p>我们可能会不时更新本隐私政策。当我们进行更改时，我们会在应用内通知您。</p>
+            
+            <h2>联系我们</h2>
+            <p>如果您对我们的隐私政策有任何疑问，请通过应用内的用户反馈功能联系我们。</p>
+        </div>
+
+        <!-- 英文版本 -->
+        <div id="en" class="lang-content">
+            <h1>Privacy Policy</h1>
+            
+            <p>PeekPeek values your privacy greatly. This privacy policy is designed to explain how we collect, use, and protect your personal information.</p>
+            
+            <h2>Information Collection</h2>
+            <p>We only collect social media link information that you actively provide, including but not limited to usernames, avatars, and nicknames. All data is stored locally on your device and is not uploaded to any servers.</p>
+            
+            <h2>Information Usage</h2>
+            <p>The collected information is only used to display your added social media account information within the application, allowing you to quickly access these accounts.</p>
+            
+            <h2>Information Security</h2>
+            <p>All data is stored locally on your device. We do not upload any of your information to the cloud or share it with third parties.</p>
+            
+            <h2>Privacy Policy Updates</h2>
+            <p>We may update this privacy policy from time to time. When we make changes, we will notify you within the application.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions about our privacy policy, please contact us through the user feedback feature in the application.</p>
+        </div>
+
+        <!-- 日文版本 -->
+        <div id="ja" class="lang-content">
+            <h1>プライバシーポリシー</h1>
+            
+            <p>PeekPeekはあなたのプライバシーを非常に重視しています。このプライバシーポリシーは、当社がどのようにあなたの個人情報を収集、使用、保護するかを説明するものです。</p>
+            
+            <h2>情報収集</h2>
+            <p>当社は、ユーザー名、アバター、ニックネームなど、お客様が積極的に提供するソーシャルメディアリンク情報のみを収集します。すべてのデータはお客様のデバイスにローカルに保存され、サーバーにアップロードされることはありません。</p>
+            
+            <h2>情報の使用</h2>
+            <p>収集された情報は、アプリケーション内で追加したソーシャルメディアアカウント情報を表示し、これらのアカウントに素早くアクセスできるようにするためだけに使用されます。</p>
+            
+            <h2>情報セキュリティ</h2>
+            <p>すべてのデータはお客様のデバイスにローカルに保存されます。当社はお客様の情報をクラウドにアップロードしたり、第三者と共有したりすることはありません。</p>
+            
+            <h2>プライバシーポリシーの更新</h2>
+            <p>当社は、このプライバシーポリシーを随時更新する場合があります。変更を行う際は、アプリケーション内でお知らせします。</p>
+            
+            <h2>お問い合わせ</h2>
+            <p>当社のプライバシーポリシーについてご質問がある場合は、アプリケーション内のユーザーフィードバック機能を通じてお問い合わせください。</p>
+        </div>
+
+        <!-- 韩文版本 -->
+        <div id="ko" class="lang-content">
+            <h1>개인정보 처리방침</h1>
+            
+            <p>PeekPeek은 귀하의 개인정보를 매우 중요하게 생각합니다. 이 개인정보 처리방침은 당사가 귀하의 개인정보를 어떻게 수집, 사용 및 보호하는지 설명하기 위한 것입니다.</p>
+            
+            <h2>정보 수집</h2>
+            <p>당사는 사용자 이름, 아바타 및 닉네임을 포함하되 이에 국한되지 않는, 귀하가 적극적으로 제공하는 소셜 미디어 링크 정보만 수집합니다. 모든 데이터는 귀하의 기기에 로컬로 저장되며 어떤 서버에도 업로드되지 않습니다.</p>
+            
+            <h2>정보 사용</h2>
+            <p>수집된 정보는 애플리케이션 내에서 귀하가 추가한 소셜 미디어 계정 정보를 표시하고, 이러한 계정에 빠르게 접근할 수 있도록 하는 데만 사용됩니다.</p>
+            
+            <h2>정보 보안</h2>
+            <p>모든 데이터는 귀하의 기기에 로컬로 저장됩니다. 당사는 귀하의 어떤 정보도 클라우드에 업로드하거나 제3자와 공유하지 않습니다.</p>
+            
+            <h2>개인정보 처리방침 업데이트</h2>
+            <p>당사는 때때로 이 개인정보 처리방침을 업데이트할 수 있습니다. 변경 사항이 있을 경우, 애플리케이션 내에서 알려드립니다.</p>
+            
+            <h2>문의하기</h2>
+            <p>당사의 개인정보 처리방침에 대해 질문이 있으시면, 애플리케이션 내의 사용자 피드백 기능을 통해 연락해 주시기 바랍니다.</p>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加控制台日志来调试
+            console.log("DOM已加载");
+            
+            // 获取浏览器的首选语言
+            function getBrowserLanguage() {
+                const navigatorLang = navigator.language || navigator.userLanguage;
+                console.log("浏览器语言: ", navigatorLang);
+                
+                // 简化语言代码匹配逻辑
+                if (navigatorLang.startsWith('zh')) return 'zh-CN';
+                if (navigatorLang.startsWith('ja')) return 'ja';
+                if (navigatorLang.startsWith('ko')) return 'ko';
+                return 'en'; // 默认英语
+            }
+
+            // Cookie处理函数
+            function setCookie(name, value, days) {
+                try {
+                    const expires = new Date();
+                    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+                    document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+                    console.log("设置cookie成功: ", name, value);
+                } catch (e) {
+                    console.warn('无法设置cookie:', e);
+                }
+            }
+
+            function getCookie(name) {
+                try {
+                    const nameEQ = name + '=';
+                    const ca = document.cookie.split(';');
+                    for (let i = 0; i < ca.length; i++) {
+                        let c = ca[i];
+                        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) === 0) {
+                            const value = c.substring(nameEQ.length, c.length);
+                            console.log("获取cookie成功: ", name, value);
+                            return value;
+                        }
+                    }
+                } catch (e) {
+                    console.warn('无法读取cookie:', e);
+                }
+                console.log("未找到cookie: ", name);
+                return null;
+            }
+
+            // 保存语言偏好（尝试localStorage，失败则使用cookie）
+            function saveLanguagePreference(lang) {
+                console.log("尝试保存语言偏好: ", lang);
+                try {
+                    localStorage.setItem('preferredLanguage', lang);
+                    console.log("使用localStorage保存成功");
+                } catch (e) {
+                    console.warn('localStorage不可用:', e);
+                    try {
+                        setCookie('preferredLanguage', lang, 365);
+                        console.log("使用cookie保存成功");
+                    } catch (e2) {
+                        console.warn('cookie也不可用:', e2);
+                    }
+                }
+            }
+
+            // 获取语言偏好（尝试localStorage，失败则使用cookie）
+            function getLanguagePreference() {
+                console.log("尝试获取语言偏好");
+                let lang = null;
+                try {
+                    lang = localStorage.getItem('preferredLanguage');
+                    if (lang) console.log("从localStorage获取成功: ", lang);
+                } catch (e) {
+                    console.warn('localStorage不可用:', e);
+                }
+                
+                if (!lang) {
+                    try {
+                        lang = getCookie('preferredLanguage');
+                        if (lang) console.log("从cookie获取成功: ", lang);
+                    } catch (e2) {
+                        console.warn('cookie也不可用:', e2);
+                    }
+                }
+                
+                return lang;
+            }
+
+            // 显示选定语言的内容
+            function displayLanguage(lang) {
+                console.log("显示语言: ", lang);
+                
+                // 首先隐藏所有语言内容
+                const allContents = document.querySelectorAll('.lang-content');
+                console.log("找到语言内容元素: ", allContents.length);
+                
+                allContents.forEach(el => {
+                    el.style.display = 'none';
+                    console.log("隐藏元素: ", el.id);
+                });
+                
+                // 显示选定的语言内容
+                const targetElement = document.getElementById(lang);
+                if (targetElement) {
+                    targetElement.style.display = 'block';
+                    console.log("显示元素: ", lang);
+                } else {
+                    console.error("找不到语言元素: ", lang);
+                    // 如果找不到选择的语言，默认显示英语
+                    const defaultElement = document.getElementById('en');
+                    if (defaultElement) {
+                        defaultElement.style.display = 'block';
+                        console.log("显示默认语言(英语)");
+                    } else {
+                        console.error("找不到默认语言元素(英语)");
+                    }
+                }
+                
+                // 更新语言选择器的值
+                const selectElement = document.getElementById('languageSelect');
+                if (selectElement) {
+                    selectElement.value = lang;
+                    console.log("更新选择器值: ", lang);
+                }
+                
+                // 更新HTML的lang属性
+                document.documentElement.lang = lang;
+                console.log("更新HTML lang属性: ", lang);
+            }
+
+            // 初始化语言 - 使用更健壮的方法
+            const storedLang = getLanguagePreference();
+            const initialLang = storedLang || getBrowserLanguage();
+            console.log("初始语言: ", initialLang);
+            
+            // 确保初始显示
+            displayLanguage(initialLang);
+
+            // 添加语言选择器的事件监听器
+            const selectElement = document.getElementById('languageSelect');
+            if (selectElement) {
+                selectElement.addEventListener('change', function() {
+                    const selectedLang = this.value;
+                    console.log("语言已更改: ", selectedLang);
+                    saveLanguagePreference(selectedLang);
+                    displayLanguage(selectedLang);
+                });
+                console.log("已添加选择器事件监听器");
+            } else {
+                console.error("找不到语言选择器元素");
+            }
+        });
+    </script>
 </body>
 </html>
