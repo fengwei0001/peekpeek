@@ -1,0 +1,92 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #111928;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 简单容器样式 */
+.simple-container {
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1F2938;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo容器样式 */
+.logo-container {
+    margin-bottom: 40px;
+}
+
+.circle-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.logo-container h1 {
+    font-size: 2.5rem;
+    font-family: "Knewave", serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* 下载链接样式 */
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.download-btn {
+    display: block;
+    padding: 15px 20px;
+    background-color: #BD195C;
+    color: white;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(189, 25, 92, 0.3);
+}
+
+.download-btn:hover {
+    background-color: #A3144E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(189, 25, 92, 0.4);
+}
+
+/* 响应式设计 */
+@media (max-width: 576px) {
+    .simple-container {
+        width: 95%;
+        padding: 30px 15px;
+    }
+    
+    .circle-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .logo-container h1 {
+        font-size: 2rem;
+    }
+}
